@@ -2,6 +2,17 @@
 // let firstname: string = "kamil";
 // let lastname: string = "arici";
 // let isUpdated: boolean = true;
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 // let first: number = 123;
 // console.log(first);
 // let fname:string="hop"
@@ -242,7 +253,7 @@
 // }while(counter<5);
 // ! TS FUNCTİONS
 // function add(a:number,b:number):number{
-//     return a+b 
+//     return a+b
 // }
 // let toplam=add(10,20)
 // console.log(toplam)
@@ -319,7 +330,7 @@
 //     }
 //     getFullName(){
 //         return  `${this.firstName} ${this.lastName}`
-//     } 
+//     }
 // }
 // let kisibilgim=new Person(43,"kml","arc")
 // console.log(kisibilgim);
@@ -337,7 +348,7 @@
 //     }
 //     getFullName(){
 //         return  `${this.firstName} ${this.lastName}`
-//     } 
+//     }
 // }
 // let kisibilgim=new Person(43,"kml","arc")
 // console.log(kisibilgim);
@@ -354,7 +365,7 @@
 //     }
 //     getFullName(){
 //         return  `${this.firstName} ${this.lastName}`
-//     } 
+//     }
 // }
 // let kisibilgim=new Person(43,"kml","arc")
 // console.log(kisibilgim);
@@ -372,7 +383,7 @@
 //     }
 //     getFullName(){
 //         return  `${this.firstName} ${this.lastName}`
-//     } 
+//     }
 // }
 // class Employee extends Person{
 //     constructor(id:number,firstName:string,lastName){
@@ -398,3 +409,209 @@
 // console.log(objem.pi)
 // console.log(Circle.pi)
 // console.log(Circle.hesapla(5))
+//!! abstracks class
+// abstract class Department{
+// constructor(public name :string){
+//     }
+// printName():void{
+//     console.log("department name: "+ this.name)
+// }
+//     abstract printMeeting():void;
+// }
+// class AccountingDepartment extends Department{
+//     constructor(){
+//         super(" deneme1")
+//     }
+//     printMeeting(): void {
+//         console.log("kkkkk")
+//     }
+//     generateReports():void{
+//         console.log("llll")
+//     }
+// }
+// // let department=new Department() //abstracks clasın new intence ı alınamıyor ama type olarak alınabilir
+// let department=new AccountingDepartment();
+// department.printName()
+// department.printMeeting()
+//!! interface *****
+// interface Person{
+//     firstName:string,
+//     lastName:string
+// }
+// function  getFullName(person:Person){
+//     return `${person.firstName} ${person.lastName}`;
+// }
+// let person={
+//     firstName:"kml",
+//     lastName:"arc",
+//     age:29
+// }
+// console.log(getFullName(person))
+//!! interface optional parametres
+// interface Person{
+//     firstName:string,
+//     lastName:string,
+// middleName?:string
+// }
+// function  getFullName(person:Person){
+//     if(person.middleName){
+//         return `${person.firstName}   ${person.middleName}  ${person.lastName} `;
+//     }
+//     return `${person.firstName} ${person.lastName} `;
+// }
+// let person:Person={
+//     firstName:"kml",
+//     lastName:"arc",
+//     middleName:"kemal",
+// }
+// person.firstName="cannnnn"
+// console.log(getFullName(person))
+//!interface functions
+// interface StringFormat{
+//     (str:string,isUpper:boolean):string
+// }
+// let format:StringFormat;
+// format=function (str:string,isUpper:boolean){
+//     return isUpper? str.toLocaleUpperCase():str.toLocaleLowerCase()
+// }
+// console.log(format("kml arc",true))
+//! interface extend ve implement
+// interface IPerson{
+//     name:string,
+//     gender:string
+// }
+// interface IEmployee extends IPerson{
+//     empNumber:number
+// }
+// interface IWorker extends IPerson{
+//     empDepartment:string;
+// }
+// let employee:IEmployee={
+//     empNumber:1,
+//     gender:"male",
+//     name:"kml"
+// }
+// let employeeDepartment:IWorker={
+//     empDepartment:"software",
+//     gender:"male",
+//     name:"kml"
+// }
+// console.log(employee)
+// console.log(employeeDepartment)
+// interface IPerson{
+//     name:string,
+//     gender:string
+// }
+// // interface class a implemant ederken içindeki değerleri de tekrar yazmamız gerekiyor
+// class Employee implements IPerson{
+//     empNumber:number;
+//     name:string;
+//     gender:string
+//     constructor(empNumber:number,name:string,gender:string){
+// this.empNumber=empNumber;
+// this.name=name;
+// this.gender=gender
+//     }
+// }
+// let employee=new Employee(5,"kml","arc")
+// console.log(employee)
+//! type intersection
+// interface BusinessPartner {
+//   name: string;
+//   credit: number;
+// }
+// interface Identity {
+//   name: string;
+//   id: number;
+// }
+// interface Contact {
+//   email: string;
+//   phone: string;
+// }
+// type Employee = Identity & Contact; //kesişim yaolan değişkenin type ı yeniden interface tanımlamış gigi tüm propertileri içerir
+// let kisim: Employee = {
+//   id: 54,
+//   name: "kml arc",
+//   email: "kjh@gmail.com",
+//   phone: "352543",
+// };
+// console.log(kisim);
+// type Customer = BusinessPartner & Contact;
+// let musterim: Customer = {
+//   credit: 212122,
+//   name: "kml arc",
+//   email: "kjh@gmail.com",
+//   phone: "352543",
+// };
+// console.log(musterim)
+//!type guard
+// type tip=string | number 
+// function add(a:tip,b:tip){
+//     if(typeof a === "number" && typeof b ==="number"){
+//         return a+b;
+//     }
+//     if(typeof a === "string" && typeof b ==="string"){
+//         return a.concat(b);
+//     }
+//     throw new Error("lütfen doğru formatta data gönderin");
+// }
+// console.log(add(5,6))
+//!intence of
+// class Customer{
+//     isCreditAllowed():boolean{
+//         return true
+//     }
+// }
+// class Supplier{
+//     isShortList():boolean{
+//         return true
+//     }
+// }
+// type BusinessPartner=Customer | Supplier;
+// function signContract(partner:BusinessPartner):string{
+//     let message:string;
+//     if(partner instanceof Customer){
+//         message=partner.isCreditAllowed() ? "aaaaa": "bbbbbb"
+//     }
+//     if(partner instanceof Supplier){
+//         message=partner.isShortList() ? "ccccc" :"dddddddd"
+//     }
+//     return message
+// }
+//! GENERİC TYPE *************
+function getRandomNumber(items) {
+    var randomIndex = Math.floor(Math.random() * items.length);
+    return items[randomIndex];
+}
+var numbers = [1, 54, 65, 7, 8];
+// console.log(getRandomNumber(numbers))
+function getRandomString(items) {
+    var randomIndex = Math.floor(Math.random() * items.length);
+    return items[randomIndex];
+}
+var adlarim = ["can", "tuba", "merve"];
+// console.log(getRandomString(adlarim))
+// function getRandomElement(items:any[]):any{
+//     let randomIndex= Math.floor(Math.random()*items.length)
+//     return items[randomIndex];
+// }
+// console.log(getRandomElement(numbers))
+// console.log(getRandomElement(adlarim));
+// let degiskenlerim=[true,false,true]
+// function getRandomElement<T>(items:T[]):T{
+//     let randomIndex= Math.floor(Math.random()*items.length)
+//     return items[randomIndex];
+// }
+// console.log(getRandomElement<number>(numbers))
+// console.log(getRandomElement<string>(adlarim));
+// console.log(getRandomElement<boolean>(degiskenlerim));
+//!generic constraints
+// function merge <U,V>(obj1:U,obj2:V){
+function merge(obj1, obj2) {
+    return __assign(__assign({}, obj1), obj2);
+}
+var person = merge({ name: "kml" }, 
+// {age:29}
+29 // yazdığımızda hata almıyoruz o sebeble extends obj eklememiz gerekiyor 
+);
+console.log(person);
