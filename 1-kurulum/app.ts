@@ -427,3 +427,115 @@
 // birlestir("merhaba","kml","ali","azra")
 
 
+// class Person {
+//     id:number;
+//     firstName:string;
+//     lastName:string;
+//     constructor(id:number,firstName:string,lastName:string){
+// this.id=id;
+// this.firstName=firstName;
+// this.lastName=lastName
+//     }
+//     getFullName(){
+//         return  `${this.firstName} ${this.lastName}`
+//     } 
+// }
+// let kisibilgim=new Person(43,"kml","arc")
+
+// console.log(kisibilgim);
+// console.log(kisibilgim.getFullName())
+
+
+
+//! default public dir privite olduğunda ancak class içinde kullanabiliriz
+// bir de protected var o da class içinde baska clasıa extend etmek için
+// class Person {
+//     privite id:number;
+//     privite firstName:string;
+//     protected lastName:string;
+//     constructor(id:number,firstName:string,lastName:string){
+// this.id=id;
+// this.firstName=firstName;
+// this.lastName=lastName
+//     }
+//     getFullName(){
+//         return  `${this.firstName} ${this.lastName}`
+//     } 
+// }
+// let kisibilgim=new Person(43,"kml","arc")
+
+// console.log(kisibilgim);
+// console.log(kisibilgim.getFullName())
+
+//! redonly atanan değer dışarıdan da okunur ama değer atanamaz
+
+// class Person {
+//    readonly id:number;
+//     firstName:string;
+//     lastName:string;
+//     constructor(id:number,firstName:string,lastName:string){
+// this.id=id;
+// this.firstName=firstName;
+// this.lastName=lastName
+//     }
+//     getFullName(){
+//         return  `${this.firstName} ${this.lastName}`
+//     } 
+// }
+// let kisibilgim=new Person(43,"kml","arc")
+
+// console.log(kisibilgim);
+// // kisibilgim.id=5 //Cannot assign to 'id' because it is a read-only property
+// console.log(kisibilgim.getFullName())
+
+
+//!! extend etmek
+// class Person {
+//     id:number;
+//     firstName:string;
+//     lastName:string;
+//     constructor(id:number,firstName:string,lastName:string){
+// this.id=id;
+// this.firstName=firstName;
+// this.lastName=lastName
+//     }
+//     getFullName(){
+//         return  `${this.firstName} ${this.lastName}`
+//     } 
+// }
+
+
+// class Employee extends Person{
+//     constructor(id:number,firstName:string,lastName){
+//         super(id,firstName,lastName)
+//     }
+// }
+
+// let employee=new Employee(29,"kkk","aaa");
+
+// console.log(employee.getFullName())
+
+
+
+//! static Methods tekrar bakılacak
+
+// class Circle{
+//     static pi:number=3.14;
+//     pi=3
+//     constructor(){
+//         this.pi++
+//         Circle.pi++;
+//     }
+
+//     static hesapla(yaricap:number){
+//         return this.pi * yaricap * yaricap
+//     }
+
+// }
+
+// let objem=new Circle()
+// let objem2=new Circle()
+// console.log(objem.pi)
+
+// console.log(Circle.pi)
+// console.log(Circle.hesapla(5))
