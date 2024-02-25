@@ -767,16 +767,64 @@ let adlarim=["can","tuba","merve"]
 
 
 // function merge <U,V>(obj1:U,obj2:V){
-function merge <U extends object,V extends object>(obj1:U,obj2:V){
-    return {
-        ...obj1,...obj2
-    }
+// function merge <U extends object,V extends object>(obj1:U,obj2:V){
+//     return {
+//         ...obj1,...obj2
+//     }
+// }
+
+// let person=merge(
+//     { name:"kml"},
+//     // {age:29}
+//     29 // yazdığımızda hata almıyoruz o sebeble hata almak için extends obj eklememiz gerekiyor 
+// )
+
+// console.log(person)
+
+
+//!GENERİC İNTERFACE
+
+// interface Mounths<U,V>{
+
+//     key:U,
+//     value:V
+// }
+
+// let mounth:Mounths<number,string>={
+//     key:1,
+//     value:'januvary'
+// }
+
+// console.log(mounth)
+
+
+// interface Collection<T>{
+//     add(o:T):void;
+//     remove(o:T):void;
+// }
+
+// class List<T> implements  Collection<T>{
+// private items:T[]=[];
+// add(o:T):void{
+//     this.items.push(o);
+//     console.log(this.items)
+// }
+// remove(o:T):void{
+// let index=this.items.indexOf(o);
+// if(index>-1){
+//     this.items.splice(index,1)
+// }
+// }
+// }
+
+
+// let list=new List<number>();
+
+// for(let i=0;i<10;i++){
+//     list.add(i)
+// }
+
+class add<K,T>{
+
+
 }
-
-let person=merge(
-    { name:"kml"},
-    // {age:29}
-    29 // yazdığımızda hata almıyoruz o sebeble hata almak için extends obj eklememiz gerekiyor 
-)
-
-console.log(person)

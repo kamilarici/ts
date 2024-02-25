@@ -2,17 +2,6 @@
 // let firstname: string = "kamil";
 // let lastname: string = "arici";
 // let isUpdated: boolean = true;
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 // let first: number = 123;
 // console.log(first);
 // let fname:string="hop"
@@ -590,28 +579,23 @@ function getRandomString(items) {
     return items[randomIndex];
 }
 var adlarim = ["can", "tuba", "merve"];
-// console.log(getRandomString(adlarim))
-// function getRandomElement(items:any[]):any{
-//     let randomIndex= Math.floor(Math.random()*items.length)
-//     return items[randomIndex];
-// }
-// console.log(getRandomElement(numbers))
-// console.log(getRandomElement(adlarim));
-// let degiskenlerim=[true,false,true]
-// function getRandomElement<T>(items:T[]):T{
-//     let randomIndex= Math.floor(Math.random()*items.length)
-//     return items[randomIndex];
-// }
-// console.log(getRandomElement<number>(numbers))
-// console.log(getRandomElement<string>(adlarim));
-// console.log(getRandomElement<boolean>(degiskenlerim));
-//!generic constraints
-// function merge <U,V>(obj1:U,obj2:V){
-function merge(obj1, obj2) {
-    return __assign(__assign({}, obj1), obj2);
+var List = /** @class */ (function () {
+    function List() {
+        this.items = [];
+    }
+    List.prototype.add = function (o) {
+        this.items.push(o);
+        console.log(this.items);
+    };
+    List.prototype.remove = function (o) {
+        var index = this.items.indexOf(o);
+        if (index > -1) {
+            this.items.splice(index, 1);
+        }
+    };
+    return List;
+}());
+var list = new List();
+for (var i = 0; i < 10; i++) {
+    list.add(i);
 }
-var person = merge({ name: "kml" }, 
-// {age:29}
-29 // yazdığımızda hata almıyoruz o sebeble extends obj eklememiz gerekiyor 
-);
-console.log(person);
