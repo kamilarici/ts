@@ -824,7 +824,3 @@ let adlarim=["can","tuba","merve"]
 //     list.add(i)
 // }
 
-class add<K,T>{
-
-
-}

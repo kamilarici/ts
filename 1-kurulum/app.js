@@ -579,23 +579,62 @@ function getRandomString(items) {
     return items[randomIndex];
 }
 var adlarim = ["can", "tuba", "merve"];
-var List = /** @class */ (function () {
-    function List() {
-        this.items = [];
-    }
-    List.prototype.add = function (o) {
-        this.items.push(o);
-        console.log(this.items);
-    };
-    List.prototype.remove = function (o) {
-        var index = this.items.indexOf(o);
-        if (index > -1) {
-            this.items.splice(index, 1);
-        }
-    };
-    return List;
-}());
-var list = new List();
-for (var i = 0; i < 10; i++) {
-    list.add(i);
-}
+// console.log(getRandomString(adlarim))
+// function getRandomElement(items:any[]):any{
+//     let randomIndex= Math.floor(Math.random()*items.length)
+//     return items[randomIndex];
+// }
+// console.log(getRandomElement(numbers))
+// console.log(getRandomElement(adlarim));
+// let degiskenlerim=[true,false,true]
+// function getRandomElement<T>(items:T[]):T{
+//     let randomIndex= Math.floor(Math.random()*items.length)
+//     return items[randomIndex];
+// }
+// console.log(getRandomElement<number>(numbers))
+// console.log(getRandomElement<string>(adlarim));
+// console.log(getRandomElement<boolean>(degiskenlerim));
+//!generic constraints
+// function merge <U,V>(obj1:U,obj2:V){
+// function merge <U extends object,V extends object>(obj1:U,obj2:V){
+//     return {
+//         ...obj1,...obj2
+//     }
+// }
+// let person=merge(
+//     { name:"kml"},
+//     // {age:29}
+//     29 // yazdığımızda hata almıyoruz o sebeble hata almak için extends obj eklememiz gerekiyor 
+// )
+// console.log(person)
+//!GENERİC İNTERFACE
+// interface Mounths<U,V>{
+//     key:U,
+//     value:V
+// }
+// let mounth:Mounths<number,string>={
+//     key:1,
+//     value:'januvary'
+// }
+// console.log(mounth)
+// interface Collection<T>{
+//     add(o:T):void;
+//     remove(o:T):void;
+// }
+// class List<T> implements  Collection<T>{
+// private items:T[]=[];
+// add(o:T):void{
+//     this.items.push(o);
+//     console.log(this.items)
+// }
+// remove(o:T):void{
+// let index=this.items.indexOf(o);
+// if(index>-1){
+//     this.items.splice(index,1)
+// }
+// }
+// }
+// let list=new List<number>();
+// for(let i=0;i<10;i++){
+//     list.add(i)
+// }
